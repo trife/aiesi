@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Materials</title>
+  <meta name="description" content="Get the sample images pack and confirm your browser is ready before class starts." />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <div>
+        <span class="eyebrow">2026 AI Educator Summer Institute</span>
+        <h1>AI and Image Data for Plant Sciences</h1>
+        <p class="tagline">Everything you need before class starts.</p>
+      </div>
+    </div>
+  </header>
+
+  <nav class="site-nav">
+    <div class="container">
+      <a href="index.html">Hub</a>
+      <a href="materials.html">Materials</a>
+      <a href="demos/index.html">Demos</a>
+      <a href="teachable-machine.html">Teachable Machine</a>
+      <a href="contrast.html">Learned vs. Rules</a>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container">
+      <nav class="subnav">
+        <a href="#sample-images">Sample images pack</a>
+        <a href="#test-your-browser">Test your browser</a>
+      </nav>
+    </div>
+
+    <section id="sample-images" class="section container">
+      <h2 class="section-title">Sample images pack</h2>
+      <p class="section-lede">A zip of real sample images for both the browser demos and Teachable Machine training classes.</p>
+
+      <ul class="download-list">
+        <li class="download-item">
+          <span class="file-icon">🗂️</span>
+          <div class="file-info">
+            <p class="file-name">Sample images pack</p>
+            <p class="file-desc">Photos for the four browser demos plus Teachable Machine training classes. Extract into <code>data/samples/</code> for the demos - see the README for how to wire new samples into each demo's picker.</p>
+          </div>
+          <a class="btn btn-secondary" href="#">Pack coming soon</a>
+        </li>
+      </ul>
+    </section>
+
+    <section id="test-your-browser" class="section container">
+      <h2 class="section-title">Test your browser</h2>
+      <p class="section-lede">The demos are plain JavaScript. This page just confirms your browser can draw to a canvas and lets you check your camera. Every demo also works with uploaded or sample images.</p>
+
+      <ul class="check-list">
+        <li id="check-canvas" class="check-item is-pending">
+          <span class="check-icon" aria-hidden="true"></span>
+          <span class="check-body">
+            <p class="check-title">Checking image support…</p>
+            <p class="check-detail">Required to run the demos.</p>
+          </span>
+        </li>
+
+        <li id="check-camera" class="check-item is-pending">
+          <span class="check-icon" aria-hidden="true"></span>
+          <span class="check-body">
+            <p class="check-title">Camera not tested yet</p>
+            <p class="check-detail">Optional - click "Test my camera" below. Every demo also accepts uploaded or sample images.</p>
+          </span>
+        </li>
+      </ul>
+
+      <div style="margin-top: 24px; display: flex; gap: 12px; flex-wrap: wrap; align-items: center;">
+        <button id="camera-test-btn" class="btn btn-primary" type="button">Test my camera</button>
+        <button id="camera-stop-btn" class="btn btn-secondary" type="button" hidden>Stop camera</button>
+      </div>
+
+      <video id="camera-preview" style="margin-top: 18px; max-width: 480px; width: 100%; border-radius: 14px; background: #000;" autoplay playsinline muted hidden></video>
+
+      <div class="callout" style="margin-top: 32px;">
+        <p>Everything checked out? <strong>You're ready for the workshop demos.</strong></p>
+        <a class="btn btn-primary" href="index.html">Back to the hub →</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>AI and Image Data for Plant Sciences · 2026 AI Educator Summer Institute</p>
+    </div>
+  </footer>
+
+  <script type="module" src="assets/js/setup.js"></script>
+</body>
+</html>

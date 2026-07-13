@@ -1,0 +1,26 @@
+[
+  {
+    "id": "canopy-even",
+    "file": "canopy-even.svg",
+    "label": "Canopy — evenly lit plot",
+    "difficulty": "easy"
+  },
+  {
+    "id": "seeds-clumped",
+    "file": "seeds-clumped.svg",
+    "label": "Seeds — clumped, with shadows",
+    "difficulty": "hard"
+  },
+  {
+    "id": "leaf-gradient",
+    "file": "leaf-gradient.svg",
+    "label": "Leaf — healthy-to-diseased gradient",
+    "difficulty": "medium"
+  },
+  {
+    "id": "shape-edges",
+    "file": "shape-edges.svg",
+    "label": "Shapes — mixed hard/soft edges",
+    "difficulty": "easy"
+  }
+]

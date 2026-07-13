@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <defs>
+    <radialGradient id="softCircle" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#2c5f2d"/>
+      <stop offset="70%" stop-color="#2c5f2d"/>
+      <stop offset="100%" stop-color="#eef1e8"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="800" height="600" fill="#eef1e8"/>
+
+  <!-- hard-edged rectangle: crisp, high-contrast boundary -->
+  <rect x="60" y="80" width="220" height="180" fill="#15301c"/>
+
+  <!-- hard-edged triangle -->
+  <polygon points="470,90 620,90 545,240" fill="#e0a526"/>
+
+  <!-- soft-edged circle: gradient fades to background, no crisp boundary -->
+  <circle cx="620" cy="420" r="140" fill="url(#softCircle)"/>
+
+  <!-- hard-edged small squares in a row, for a "how many edges" texture -->
+  <g fill="#97bc62">
+    <rect x="80" y="420" width="40" height="40"/>
+    <rect x="140" y="420" width="40" height="40"/>
+    <rect x="200" y="420" width="40" height="40"/>
+    <rect x="260" y="420" width="40" height="40"/>
+    <rect x="320" y="420" width="40" height="40"/>
+  </g>
+
+  <!-- thin hard-edged lines, closely spaced, to show noise sensitivity -->
+  <g stroke="#273028" stroke-width="4">
+    <line x1="360" y1="60" x2="360" y2="260"/>
+    <line x1="385" y1="60" x2="385" y2="260"/>
+    <line x1="410" y1="60" x2="410" y2="260"/>
+  </g>
+</svg>

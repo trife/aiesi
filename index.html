@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI and Image Data for Plant Sciences</title>
+  <meta name="description" content="Workshop hub for AI and Image Data for Plant Sciences - agenda, tools, and in-browser computer vision demos." />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <div>
+        <span class="eyebrow">2026 AI Educator Summer Institute</span>
+        <h1>AI and Image Data for Plant Sciences</h1>
+        <p class="tagline">An afternoon workshop on two ways to make a computer "see" a plant.</p>
+      </div>
+    </div>
+  </header>
+
+  <nav class="site-nav">
+    <div class="container">
+      <a href="index.html">Hub</a>
+      <a href="materials.html">Materials</a>
+      <a href="demos/index.html">Demos</a>
+      <a href="teachable-machine.html">Teachable Machine</a>
+      <a href="contrast.html">Learned vs. Rules</a>
+    </div>
+  </nav>
+
+  <main>
+
+    <section class="section container">
+      <h2 class="section-title">Agenda</h2>
+      <details class="agenda-block" open>
+        <summary>
+          Part 1 - Do the AI science
+          <span class="agenda-meta">~75 min</span>
+        </summary>
+        <div class="agenda-body">
+          <ul class="agenda-list">
+            <li>
+              <span class="agenda-time">~35 min</span>
+              <div>
+                <p class="agenda-item-title">Browser demos</p>
+                <p class="agenda-item-desc">Start with the "rules you write" side. Work through all four demos: adjust parameters to change results and compare to ground truth.</p>
+              </div>
+            </li>
+            <li>
+              <span class="agenda-time">~25 min</span>
+              <div>
+                <p class="agenda-item-title">Teachable Machine</p>
+                <p class="agenda-item-desc">Now flip to "learned from examples." Train a classifier in the browser, then break it with edge cases.</p>
+              </div>
+            </li>
+            <li>
+              <span class="agenda-time">~15 min</span>
+              <div>
+                <p class="agenda-item-title">Name the contrast</p>
+                <p class="agenda-item-desc">Learned vs. rules, where each broke, and why validation is unavoidable.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="agenda-block">
+        <summary>
+          Part 2 - Discuss the science
+          <span class="agenda-meta">~75 min</span>
+        </summary>
+        <div class="agenda-body">
+          <ul class="agenda-list">
+            <li>
+              <span class="agenda-time">~30 min</span>
+              <div>
+                <p class="agenda-item-title">Adapt the trust check</p>
+                <p class="agenda-item-desc">Rewrite the six-question trust check for your own subject.</p>
+              </div>
+            </li>
+            <li>
+              <span class="agenda-time">~30 min</span>
+              <div>
+                <p class="agenda-item-title">Design one activity</p>
+                <p class="agenda-item-desc">In small groups, build or retrofit one classroom exercise where AI does the grunt work but the graded skill is judgment.</p>
+              </div>
+            </li>
+            <li>
+              <span class="agenda-time">~15 min</span>
+              <div>
+                <p class="agenda-item-title">Share-out</p>
+                <p class="agenda-item-desc">Groups present their activity design.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </details>
+    </section>
+
+    <section class="section container">
+      <div class="callout">
+        <p>First time here? <strong>Get your materials</strong> before class starts - grab the sample images pack and confirm your browser is ready.</p>
+        <a class="btn btn-primary" href="materials.html">Get your materials →</a>
+      </div>
+    </section>
+
+    <section class="section container">
+      <h2 class="section-title">Launch the demos</h2>
+      <p class="section-lede">Four browser-local computer vision demos. Upload an image, use your webcam, or pick a sample. Adjust parameters and watch the result change.</p>
+
+      <div class="card-grid">
+        <a class="card" href="demos/canopy-cover.html">
+          <span class="card-icon">🌿</span>
+          <span class="card-tag">Demo 1</span>
+          <h3>Canopy cover</h3>
+          <p>Threshold a green color range and measure what fraction of the image is canopy.</p>
+          <span class="card-cta">Open demo →</span>
+        </a>
+
+        <a class="card" href="demos/count-objects.html">
+          <span class="card-icon">🌱</span>
+          <span class="card-tag">Demo 2</span>
+          <h3>Count the objects</h3>
+          <p>Threshold, find contours, filter by size, and count seeds or plants automatically.</p>
+          <span class="card-cta">Open demo →</span>
+        </a>
+
+        <a class="card" href="demos/color-health.html">
+          <span class="card-icon">🍂</span>
+          <span class="card-tag">Demo 3</span>
+          <h3>Greenness / health index</h3>
+          <p>Report a green-vs-brown ratio as a "health index."</p>
+          <span class="card-cta">Open demo →</span>
+        </a>
+
+        <a class="card" href="demos/edge-detection.html">
+          <span class="card-icon">🔲</span>
+          <span class="card-tag">Demo 4</span>
+          <h3>Edge detection</h3>
+          <p>Run Canny edge detection with two sliders to show how a CNN sees an image before it sees a "shape."</p>
+          <span class="card-cta">Open demo →</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="section container">
+      <h2 class="section-title">Tools</h2>
+      <p class="section-lede">The rest of the toolkit this workshop draws on.</p>
+
+      <div class="card-grid">
+        <a class="card" href="https://teachablemachine.withgoogle.com/" target="_blank" rel="noopener">
+          <span class="card-icon">🧠</span>
+          <h3>Teachable Machine</h3>
+          <p>Train an image classifier in the browser by example.</p>
+          <span class="card-cta">teachablemachine.withgoogle.com ↗</span>
+        </a>
+
+        <a class="card" href="https://colab.research.google.com/" target="_blank" rel="noopener">
+          <span class="card-icon">📓</span>
+          <h3>Google Colab</h3>
+          <p>Free, browser-based Python notebooks.</p>
+          <span class="card-cta">colab.research.google.com ↗</span>
+        </a>
+
+        <a class="card" href="https://plantcv.org/" target="_blank" rel="noopener">
+          <span class="card-icon">🪴</span>
+          <h3>PlantCV</h3>
+          <p>An open-source image analysis toolkit built specifically for plant phenotyping.</p>
+          <span class="card-cta">plantcv.org ↗</span>
+        </a>
+
+        <a class="card" href="https://imagej.net/software/fiji/" target="_blank" rel="noopener">
+          <span class="card-icon">🔬</span>
+          <h3>ImageJ / Fiji</h3>
+          <p>A widely-used desktop tool for scientific image analysis, popular in biology research.</p>
+          <span class="card-cta">imagej.net/software/fiji ↗</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="section container">
+      <h2 class="section-title">Downloads</h2>
+
+      <ul class="download-list">
+        <li class="download-item">
+          <span class="file-icon">📄</span>
+          <div class="file-info">
+            <p class="file-name">Trust-check worksheet</p>
+            <p class="file-desc">Six questions for deciding whether to trust an AI's answer.</p>
+          </div>
+          <a class="btn btn-secondary" href="downloads/trust-check.pdf">Download</a>
+        </li>
+
+        <li class="download-item">
+          <span class="file-icon">📄</span>
+          <div class="file-info">
+            <p class="file-name">Activity template</p>
+            <p class="file-desc">A starting point for designing a classroom exercise where AI does the grunt work.</p>
+          </div>
+          <a class="btn btn-secondary" href="downloads/activity-template.pdf">Download</a>
+        </li>
+
+        <li class="download-item">
+          <span class="file-icon">🖼️</span>
+          <div class="file-info">
+            <p class="file-name">Session 1 slides</p>
+            <p class="file-desc">The deck this workshop builds on.</p>
+          </div>
+          <a class="btn btn-secondary" href="#">Link coming soon</a>
+        </li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>AI and Image Data for Plant Sciences · 2026 AI Educator Summer Institute</p>
+    </div>
+  </footer>
+
+</body>
+</html>

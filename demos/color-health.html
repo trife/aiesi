@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Greenness / health index - AI and Image Data for Plant Sciences</title>
+  <meta name="description" content="Classify green vs. brown/yellow pixels and report a health index - entirely in the browser." />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <div>
+        <span class="eyebrow">Demo 3 of 4</span>
+        <h1>Greenness / health index</h1>
+        <p class="tagline">A green-vs-brown ratio, reported as a confident-sounding percentage.</p>
+      </div>
+    </div>
+  </header>
+
+  <nav class="site-nav">
+    <div class="container">
+      <a href="../index.html">Hub</a>
+      <a href="../materials.html">Materials</a>
+      <a href="index.html">Demos</a>
+      <a href="../teachable-machine.html">Teachable Machine</a>
+      <a href="../contrast.html">Learned vs. Rules</a>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container">
+      <nav class="subnav">
+        <a href="index.html">← All demos</a>
+        <a href="canopy-cover.html">1. Canopy cover</a>
+        <a href="count-objects.html">2. Count the objects</a>
+        <a href="color-health.html" class="is-current">3. Greenness / health index</a>
+        <a href="edge-detection.html">4. Edge detection</a>
+      </nav>
+    </div>
+
+    <section class="section container demo-header" style="padding-bottom: 0;">
+      <p>This "health index" is just the fraction of classified pixels that land on the green side of a hue split you choose. <strong>The number is only as meaningful as the definition behind it</strong> - move the split and the same leaf gets a different score.</p>
+    </section>
+
+    <section class="section container">
+      <div class="demo-layout">
+        <div class="demo-controls">
+          <div class="demo-panel">
+            <h3>Image source</h3>
+            <div id="image-input"></div>
+          </div>
+
+          <div class="demo-panel">
+            <h3>Green / brown split</h3>
+            <div class="slider-group">
+              <div class="slider-row">
+                <label for="hue-split">Hue split (below = brown, above = green) <output id="hue-split-out" for="hue-split"></output></label>
+                <input type="range" id="hue-split" min="0" max="360" step="1" value="75" />
+              </div>
+              <div class="slider-row">
+                <label for="sat-min">Saturation min (excludes gray background) <output id="sat-min-out" for="sat-min"></output></label>
+                <input type="range" id="sat-min" min="0" max="100" step="1" value="15" />
+              </div>
+            </div>
+          </div>
+
+          <div class="demo-readout">
+            <span class="demo-readout-label">Health index</span>
+            <span id="readout-value">-</span>
+          </div>
+        </div>
+
+        <div class="demo-canvases">
+          <div class="demo-canvas-block">
+            <h3>Source</h3>
+            <canvas id="source-canvas"></canvas>
+          </div>
+          <div class="demo-canvas-block">
+            <h3>Green (healthy) vs. brown (diseased)</h3>
+            <canvas id="result-canvas"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <div class="try-this">
+        <h3>Try this → Now check it</h3>
+        <p><strong>Try this:</strong> nudge the hue split a few degrees either way and watch the health index jump several points on the exact same leaf - with no new information added.</p>
+        <p><strong>Now check it:</strong> would you call this leaf healthy? Does the percentage match your own judgment, or does it just sound more precise than it is?</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>AI and Image Data for Plant Sciences · 2026 AI Educator Summer Institute · no accounts, no tracking - everything runs in your browser.</p>
+    </div>
+  </footer>
+
+  <script type="module" src="../assets/js/demo-color.js"></script>
+</body>
+</html>

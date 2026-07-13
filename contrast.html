@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Learned vs. Rules</title>
+  <meta name="description" content="Two ways to make a computer see a plant, and why neither one knows when it's wrong." />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <div>
+        <span class="eyebrow">Part 1 · ~15 min</span>
+        <h1>Two ways to make a computer "see"</h1>
+        <p class="tagline">Different approach and the same blind spot.</p>
+      </div>
+    </div>
+  </header>
+
+  <nav class="site-nav">
+    <div class="container">
+      <a href="index.html">Hub</a>
+      <a href="materials.html">Materials</a>
+      <a href="demos/index.html">Demos</a>
+      <a href="teachable-machine.html">Teachable Machine</a>
+      <a href="contrast.html">Learned vs. Rules</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="section container">
+      <div class="card-grid" style="grid-template-columns: 1fr 1fr;">
+        <div class="card">
+          <span class="card-icon">✍️</span>
+          <h3>You wrote the rules by hand</h3>
+          <p><strong>The browser demos.</strong> Canopy cover, object counting, greenness index, edge detection - every one of them is a threshold or a formula <em>you</em> set with a slider. Nobody trained anything; you are the model.</p>
+          <p style="margin-top: 12px;"><strong>How it fails:</strong> the "right" threshold doesn't exist - move the slider and the answer changes, with no signal telling you which value was correct. Shadows, clumps, and lighting break hand-written rules just as easily as they break a trained model, just in more predictable ways.</p>
+        </div>
+
+        <div class="card">
+          <span class="card-icon">🧠</span>
+          <h3>You trained it by example</h3>
+          <p><strong>Teachable Machine.</strong> You showed it labeled leaves - healthy vs. diseased, species A vs. species B - and it found the pattern on its own. Nobody wrote down what "diseased" looks like; the model inferred it from your photos.</p>
+          <p style="margin-top: 12px;"><strong>How it fails:</strong> it learns whatever's actually in the training photos, which isn't always the plant. Lighting, background, camera angle - any of those can become "the pattern" instead of the leaf itself. And it answers confidently even on a blurry photo, a hand, or a leaf it's never seen.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container">
+      <div class="callout">
+        <p><strong>Both need validation. Neither one knows when it's wrong.</strong> A trained model gives you a confidence score that doesn't mean what it sounds like it means. A hand-written rule gives you a precise-looking number that's only as good as the threshold behind it. In both cases, the check is the same: does this match what a person looking carefully would say? That's the trust check - and it's the same six questions regardless of which paradigm produced the answer.</p>
+      </div>
+    </section>
+
+    <section class="section container">
+      <h2 class="section-title">What's next</h2>
+      <div class="card-grid">
+        <a class="card" href="downloads/trust-check.pdf">
+          <span class="card-icon">✅</span>
+          <h3>Adapt the trust check</h3>
+          <p>Take the six-question trust check and rewrite it for your own subject.</p>
+          <span class="card-cta">Download worksheet →</span>
+        </a>
+        <a class="card" href="downloads/activity-template.pdf">
+          <span class="card-icon">🧩</span>
+          <h3>Design one activity</h3>
+          <p>Build or retrofit one classroom exercise where AI does the grunt work but the graded skill is judgment.</p>
+          <span class="card-cta">Download template →</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>AI and Image Data for Plant Sciences · 2026 AI Educator Summer Institute</p>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Canopy cover</title>
+  <meta name="description" content="Threshold a green color range and measure canopy cover percentage - entirely in the browser." />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <div>
+        <span class="eyebrow">Demo 1 of 4</span>
+        <h1>Canopy cover</h1>
+        <p class="tagline">Threshold a green color range and measure what fraction of the image is canopy.</p>
+      </div>
+    </div>
+  </header>
+
+  <nav class="site-nav">
+    <div class="container">
+      <a href="../index.html">Hub</a>
+      <a href="../materials.html">Materials</a>
+      <a href="index.html">Demos</a>
+      <a href="../teachable-machine.html">Teachable Machine</a>
+      <a href="../contrast.html">Learned vs. Rules</a>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container">
+      <nav class="subnav">
+        <a href="index.html">← All demos</a>
+        <a href="canopy-cover.html" class="is-current">1. Canopy cover</a>
+        <a href="count-objects.html">2. Count the objects</a>
+        <a href="color-health.html">3. Greenness / health index</a>
+        <a href="edge-detection.html">4. Edge detection</a>
+      </nav>
+    </div>
+
+    <section class="section container demo-header" style="padding-bottom: 0;">
+      <p>Segmentation → canopy cover. Move the threshold and the answer changes - there's no single "right" value, only a value someone chose.</p>
+    </section>
+
+    <section class="section container">
+      <div class="demo-layout">
+        <div class="demo-controls">
+          <div class="demo-panel">
+            <h3>Image source</h3>
+            <div id="image-input"></div>
+          </div>
+
+          <div class="demo-panel">
+            <h3>Green threshold (HSV band)</h3>
+            <div class="slider-group">
+              <div class="slider-row">
+                <label for="h-min">Hue min <output id="h-min-out" for="h-min"></output></label>
+                <input type="range" id="h-min" min="0" max="360" step="1" value="70" />
+              </div>
+              <div class="slider-row">
+                <label for="h-max">Hue max <output id="h-max-out" for="h-max"></output></label>
+                <input type="range" id="h-max" min="0" max="360" step="1" value="170" />
+              </div>
+              <div class="slider-row">
+                <label for="s-min">Saturation min <output id="s-min-out" for="s-min"></output></label>
+                <input type="range" id="s-min" min="0" max="100" step="1" value="20" />
+              </div>
+              <div class="slider-row">
+                <label for="s-max">Saturation max <output id="s-max-out" for="s-max"></output></label>
+                <input type="range" id="s-max" min="0" max="100" step="1" value="100" />
+              </div>
+              <div class="slider-row">
+                <label for="v-min">Value min <output id="v-min-out" for="v-min"></output></label>
+                <input type="range" id="v-min" min="0" max="100" step="1" value="15" />
+              </div>
+              <div class="slider-row">
+                <label for="v-max">Value max <output id="v-max-out" for="v-max"></output></label>
+                <input type="range" id="v-max" min="0" max="100" step="1" value="100" />
+              </div>
+            </div>
+          </div>
+
+          <div class="demo-readout">
+            <span class="demo-readout-label">Canopy cover</span>
+            <span id="readout-value">-</span>
+          </div>
+        </div>
+
+        <div class="demo-canvases">
+          <div class="demo-canvas-block">
+            <h3>Source</h3>
+            <canvas id="source-canvas"></canvas>
+          </div>
+          <div class="demo-canvas-block">
+            <h3>Mask overlay</h3>
+            <canvas id="result-canvas"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <div class="try-this">
+        <h3>Try this → Now check it</h3>
+        <p><strong>Try this:</strong> slide the hue range to both extremes and watch canopy cover swing from near 0% to near 100% on the exact same photo.</p>
+        <p><strong>Now check it:</strong> look at the mask overlay yourself. Does the highlighted area actually match what you'd call "canopy"? Where does it disagree and which number would you report?</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>AI and Image Data for Plant Sciences · 2026 AI Educator Summer Institute · no accounts, no tracking - everything runs in your browser.</p>
+    </div>
+  </footer>
+
+  <script type="module" src="../assets/js/demo-canopy.js"></script>
+</body>
+</html>

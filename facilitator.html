@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Facilitator notes</title>
+  <meta name="description" content="Run-of-show for both parts of the workshop." />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <div>
+        <span class="eyebrow">Facilitator notes · not for participants</span>
+        <h1>Facilitator notes</h1>
+        <p class="tagline">Run-of-show for both parts of the afternoon.</p>
+      </div>
+    </div>
+  </header>
+
+  <nav class="site-nav">
+    <div class="container">
+      <a href="index.html">Hub</a>
+      <a href="materials.html">Materials</a>
+      <a href="demos/index.html">Demos</a>
+      <a href="teachable-machine.html">Teachable Machine</a>
+      <a href="contrast.html">Learned vs. Rules</a>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container">
+      <nav class="subnav">
+        <a href="#part-1">Part 1 - Do the AI science</a>
+        <a href="#part-2">Part 2 - Discuss the science</a>
+      </nav>
+    </div>
+
+    <section class="section container">
+      <div class="callout">
+        <p><strong>v1 stub.</strong> Timings and talking points below are a starting skeleton - replace with your own before the session. Content sourced from BUILD-PLAN.md Part 1.</p>
+      </div>
+    </section>
+
+    <section class="section container">
+      <h2 class="section-title">Before the room fills up</h2>
+      <ul>
+        <li>Have everyone open <a href="materials.html">materials.html</a> as they arrive - it confirms their browser can run the demos and lets them test their camera, so nobody hits a surprise mid-activity.</li>
+        <li>Project the hub page (<a href="index.html">index.html</a>) so people can find their way back to it.</li>
+      </ul>
+    </section>
+
+    <section id="part-1" class="section container">
+      <h2 class="section-title">Part 1 - Do the AI science <span style="color: var(--muted); font-weight: 400;">(~75 min)</span></h2>
+
+      <h3>Segment 1 - Browser demos <span style="color: var(--muted); font-weight: 400;">(~35 min)</span></h3>
+      <p><em>Site: <a href="demos/index.html">demos/index.html</a></em></p>
+      <ul>
+        <li>Frame it: "You write the rules by hand - you are the model."</li>
+        <li>Suggest ~8 min per demo: canopy cover → count the objects → greenness/health index → edge detection.</li>
+        <li>For each: adjust the sliders, then use that demo's "Try this → Now check it" panel as the built-in prompt - no separate handout needed.</li>
+      </ul>
+      <p><strong>Talking point:</strong> [TODO - tie each demo back to its phenotyping parallel from the Session 1 slides.]</p>
+
+      <h3>Segment 2 - Teachable Machine <span style="color: var(--muted); font-weight: 400;">(~25 min)</span></h3>
+      <p><em>Site: <a href="teachable-machine.html">teachable-machine.html</a></em></p>
+      <ul>
+        <li><strong>Frame it (2 min):</strong> "Now flip to learned from examples - you show it labeled leaves, it finds the rule."</li>
+        <li><strong>Train (10 min):</strong> two classes, 10–20 photos each. Walk the room - watch for badly imbalanced classes (18 vs. 4) as a live teaching moment.</li>
+        <li><strong>Test (5 min):</strong> normal conditions, should work well and feel impressive.</li>
+        <li><strong>Break it (8 min):</strong> edge cases on purpose - blur, weird angle, a hand, wrong plant entirely. Point out the confidence score rarely drops.</li>
+      </ul>
+      <p><strong>Talking point:</strong> [TODO - your own line connecting this to Session 1's "learned vs. programmed" framing.]</p>
+
+      <h3>Segment 3 - Name the contrast <span style="color: var(--muted); font-weight: 400;">(~15 min)</span></h3>
+      <p><em>Site: <a href="contrast.html">contrast.html</a></em></p>
+      <ul>
+        <li>Pull up the two-column recap. Ask: where did each approach break for you specifically?</li>
+        <li>Land on: both need validation; neither one knows when it's wrong.</li>
+        <li>Bridge to Part 2: "That's exactly what the trust check is for."</li>
+      </ul>
+    </section>
+
+    <section id="part-2" class="section container">
+      <h2 class="section-title">Part 2 - Discuss the science <span style="color: var(--muted); font-weight: 400;">(~75 min)</span></h2>
+
+      <h3>Segment 1 - Adapt the trust check <span style="color: var(--muted); font-weight: 400;">(~30 min)</span></h3>
+      <p><em>Site: <a href="downloads/trust-check.pdf">downloads/trust-check.pdf</a></em></p>
+      <ul>
+        <li>Hand out (or have people download) the trust-check worksheet.</li>
+        <li>Have each teacher rewrite the six questions for their own subject - a biology teacher for a cell-counting AI, a chemistry teacher for a spectra classifier.</li>
+        <li>Working solo or in pairs is fine; the goal is a first draft, not a polished worksheet.</li>
+      </ul>
+      <p><strong>Talking point:</strong> [TODO - the placeholder worksheet ships with six generic starter questions; swap in your real ones before printing.]</p>
+
+      <h3>Segment 2 - Design one activity <span style="color: var(--muted); font-weight: 400;">(~30 min)</span></h3>
+      <p><em>Site: <a href="downloads/activity-template.pdf">downloads/activity-template.pdf</a></em></p>
+      <ul>
+        <li>Small groups (3–4). Each group builds or retrofits one classroom exercise.</li>
+        <li>Constraint to repeat out loud: AI does the grunt work, but the graded skill is judgment - not "did you get the AI's number."</li>
+        <li>Push groups to name specifically what a student would be graded on.</li>
+      </ul>
+
+      <h3>Segment 3 - Share-out <span style="color: var(--muted); font-weight: 400;">(~15 min)</span></h3>
+      <ul>
+        <li>One minute per group: what's the activity, what's the graded skill.</li>
+        <li>Close on the throughline: today's tools change, but "where's the ground truth, and does this answer earn your trust" doesn't.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>AI and Image Data for Plant Sciences · 2026 AI Educator Summer Institute</p>
+    </div>
+  </footer>
+
+</body>
+</html>

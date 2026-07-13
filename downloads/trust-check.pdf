@@ -1,0 +1,77 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /Resources << /Font << /F1 4 0 R >> >> /MediaBox [0 0 612 792] /Contents 5 0 R >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+5 0 obj
+<< /Length 984 >>
+stream
+BT
+/F1 20 Tf
+72 702 Td
+(Trust-Check Worksheet) Tj
+-72 -702 Td
+/F1 11 Tf
+72 672 Td
+(\(v1 draft - rewrite these six questions for your own subject\)) Tj
+-72 -672 Td
+/F1 12 Tf
+72 646 Td
+(1. What is the AI actually measuring, in plain language?) Tj
+-72 -646 Td
+/F1 12 Tf
+72 622 Td
+(2. What does its confidence score really represent -) Tj
+-72 -622 Td
+/F1 12 Tf
+72 606 Td
+(   and what does it NOT represent?) Tj
+-72 -606 Td
+/F1 12 Tf
+72 582 Td
+(3. Where does the ground truth come from, and how would) Tj
+-72 -582 Td
+/F1 12 Tf
+72 566 Td
+(   you check it by hand?) Tj
+-72 -566 Td
+/F1 12 Tf
+72 542 Td
+(4. What kind of input would you expect this AI to get wrong?) Tj
+-72 -542 Td
+/F1 12 Tf
+72 518 Td
+(5. What's the cost of a false positive vs. a false negative here?) Tj
+-72 -518 Td
+/F1 12 Tf
+72 494 Td
+(6. If a student disagreed with the AI, what would settle it?) Tj
+-72 -494 Td
+/F1 9 Tf
+72 460 Td
+(AI and Image Data for Plant Sciences - 2026 AI Educator Summer Institute) Tj
+-72 -460 Td
+ET
+endstream
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000241 00000 n 
+0000000311 00000 n 
+trailer
+<< /Size 6 /Root 1 0 R >>
+startxref
+1346
+%%EOF

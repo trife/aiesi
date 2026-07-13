@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Edge detection - AI and Image Data for Plant Sciences</title>
+  <meta name="description" content="Canny edge detection with two threshold sliders - entirely in the browser." />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <div>
+        <span class="eyebrow">Demo 4 of 4</span>
+        <h1>Edge detection</h1>
+        <p class="tagline">Pixels → edges → shapes → meaning. This is where "seeing" starts.</p>
+      </div>
+    </div>
+  </header>
+
+  <nav class="site-nav">
+    <div class="container">
+      <a href="../index.html">Hub</a>
+      <a href="../materials.html">Materials</a>
+      <a href="index.html">Demos</a>
+      <a href="../teachable-machine.html">Teachable Machine</a>
+      <a href="../contrast.html">Learned vs. Rules</a>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container">
+      <nav class="subnav">
+        <a href="index.html">← All demos</a>
+        <a href="canopy-cover.html">1. Canopy cover</a>
+        <a href="count-objects.html">2. Count the objects</a>
+        <a href="color-health.html">3. Greenness / health index</a>
+        <a href="edge-detection.html" class="is-current">4. Edge detection</a>
+      </nav>
+    </div>
+
+    <section class="section container demo-header" style="padding-bottom: 0;">
+      <p>A CNN's earliest layers do something a lot like this: find edges before anything resembling a "shape" or a "leaf" exists. Canny edge detection finds edges with two thresholds - a low one and a high one.</p>
+    </section>
+
+    <section class="section container">
+      <div class="demo-layout">
+        <div class="demo-controls">
+          <div class="demo-panel">
+            <h3>Image source</h3>
+            <div id="image-input"></div>
+          </div>
+
+          <div class="demo-panel">
+            <h3>Canny thresholds</h3>
+            <div class="slider-group">
+              <div class="slider-row">
+                <label for="low-threshold">Low threshold <output id="low-threshold-out" for="low-threshold"></output></label>
+                <input type="range" id="low-threshold" min="0" max="400" step="1" value="30" />
+              </div>
+              <div class="slider-row">
+                <label for="high-threshold">High threshold <output id="high-threshold-out" for="high-threshold"></output></label>
+                <input type="range" id="high-threshold" min="0" max="400" step="1" value="90" />
+              </div>
+            </div>
+          </div>
+
+          <div class="demo-readout">
+            <span class="demo-readout-label">Edge pixels</span>
+            <span id="readout-value">-</span>
+          </div>
+        </div>
+
+        <div class="demo-canvases">
+          <div class="demo-canvas-block">
+            <h3>Source</h3>
+            <canvas id="source-canvas"></canvas>
+          </div>
+          <div class="demo-canvas-block">
+            <h3>Edge map</h3>
+            <canvas id="result-canvas"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <div class="try-this">
+        <h3>Try this → Now check it</h3>
+        <p><strong>Try this:</strong> drag the low threshold way down - watch noise and texture flood the edge map. Then drag the high threshold way up - only the strongest boundaries survive.</p>
+        <p><strong>Now check it:</strong> count the real object boundaries you can identify in the edge map versus how many are noise or shadow. Does the edge map alone tell you what's a leaf and what's a shadow?</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>AI and Image Data for Plant Sciences · 2026 AI Educator Summer Institute · no accounts, no tracking - everything runs in your browser.</p>
+    </div>
+  </footer>
+
+  <script type="module" src="../assets/js/demo-edges.js"></script>
+</body>
+</html>

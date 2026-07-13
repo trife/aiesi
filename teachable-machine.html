@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Teachable Machine activity</title>
+  <meta name="description" content="Train a leaf classifier by example, then try to break it - a guide to the Teachable Machine activity." />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <div>
+        <span class="eyebrow">Part 1 · ~25 min</span>
+        <h1>Teachable Machine</h1>
+        <p class="tagline">Train a classifier and try to break it.</p>
+      </div>
+    </div>
+  </header>
+
+  <nav class="site-nav">
+    <div class="container">
+      <a href="index.html">Hub</a>
+      <a href="materials.html">Materials</a>
+      <a href="demos/index.html">Demos</a>
+      <a href="teachable-machine.html">Teachable Machine</a>
+      <a href="contrast.html">Learned vs. Rules</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="section container">
+      <p class="section-lede">Now flip to the "learned from examples" half of the afternoon. You show the model labeled leaves; it figures out the rule on its own.</p>
+
+      <div class="callout">
+        <p>Open Teachable Machine in a new tab and follow along with the steps below.</p>
+        <a class="btn btn-primary" href="https://teachablemachine.withgoogle.com/train/image" target="_blank" rel="noopener">Open Teachable Machine →</a>
+      </div>
+    </section>
+
+    <section class="section container">
+      <h2 class="section-title">The activity</h2>
+
+      <ol class="step-list">
+        <li class="step-item">
+          <span class="step-number">1</span>
+          <div class="step-body">
+            <h3>Train</h3>
+            <p>Create an <strong>Image Project</strong> → <strong>Standard image model</strong>. Make two classes - e.g. "healthy leaf" vs. "diseased leaf," or two different species. Use your webcam or upload a handful of photos per class (10–20 is plenty to start). Click <strong>Train Model</strong>.</p>
+          </div>
+        </li>
+        <li class="step-item">
+          <span class="step-number">2</span>
+          <div class="step-body">
+            <h3>Test</h3>
+            <p>Use the live preview panel to show it new leaves from the <em>same</em> conditions you trained on.</p>
+          </div>
+        </li>
+        <li class="step-item">
+          <span class="step-number">3</span>
+          <div class="step-body">
+            <h3>Break it</h3>
+            <p>Now feed it edge cases on purpose. The confidence score rarely drops to "I don't know." <strong>It answers confidently even when it shouldn't.</strong></p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <section class="section container">
+      <h2 class="section-title">Discuss</h2>
+      <p class="section-lede">A few prompts to run as a group after everyone has broken their model:</p>
+      <ul>
+        <li>What did your model actually learn - the leaf, or something incidental in the background/lighting of your training photos?</li>
+        <li>Was your training set balanced between classes? What happens to a model trained on 18 healthy photos and 4 diseased ones?</li>
+        <li>The confidence score was high even on nonsense inputs. What would you need to add to this workflow to catch that in a real classroom or research use?</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>AI and Image Data for Plant Sciences · 2026 AI Educator Summer Institute</p>
+    </div>
+  </footer>
+
+</body>
+</html>
