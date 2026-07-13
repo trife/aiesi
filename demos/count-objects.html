@@ -53,15 +53,43 @@
           </div>
 
           <div class="demo-panel">
-            <h3>Threshold &amp; size filter</h3>
+            <h3>Step 1 - Convert to binary</h3>
+            <p class="section-lede" style="margin-bottom: 12px;">Raw pixels aren't countable. Every pixel first gets sorted into exactly two buckets - foreground or background - by whether its R, G, and B all fall inside the ranges below.</p>
             <div class="slider-group">
               <div class="slider-row">
-                <label for="threshold">Threshold (darker than) <output id="threshold-out" for="threshold"></output></label>
-                <input type="range" id="threshold" min="0" max="255" step="1" value="150" />
+                <label for="r-min">Red min <output id="r-min-out" for="r-min"></output></label>
+                <input type="range" id="r-min" min="0" max="255" step="1" value="120" />
               </div>
               <div class="slider-row">
+                <label for="r-max">Red max <output id="r-max-out" for="r-max"></output></label>
+                <input type="range" id="r-max" min="0" max="255" step="1" value="255" />
+              </div>
+              <div class="slider-row">
+                <label for="g-min">Green min <output id="g-min-out" for="g-min"></output></label>
+                <input type="range" id="g-min" min="0" max="255" step="1" value="60" />
+              </div>
+              <div class="slider-row">
+                <label for="g-max">Green max <output id="g-max-out" for="g-max"></output></label>
+                <input type="range" id="g-max" min="0" max="255" step="1" value="200" />
+              </div>
+              <div class="slider-row">
+                <label for="b-min">Blue min <output id="b-min-out" for="b-min"></output></label>
+                <input type="range" id="b-min" min="0" max="255" step="1" value="40" />
+              </div>
+              <div class="slider-row">
+                <label for="b-max">Blue max <output id="b-max-out" for="b-max"></output></label>
+                <input type="range" id="b-max" min="0" max="255" step="1" value="210" />
+              </div>
+            </div>
+          </div>
+
+          <div class="demo-panel">
+            <h3>Step 2 - Filter the binary image</h3>
+            <p class="section-lede" style="margin-bottom: 12px;">Now that it's binary, group connected pixels into blobs and drop the ones too small to count.</p>
+            <div class="slider-group">
+              <div class="slider-row">
                 <label for="min-area">Min blob area <output id="min-area-out" for="min-area"></output></label>
-                <input type="range" id="min-area" min="0" max="3000" step="10" value="150" />
+                <input type="range" id="min-area" min="0" max="100" step="1" value="22" />
               </div>
             </div>
           </div>
@@ -78,7 +106,7 @@
             <canvas id="source-canvas"></canvas>
           </div>
           <div class="demo-canvas-block">
-            <h3>Threshold mask + counted blobs</h3>
+            <h3>Result: made binary, particles counted</h3>
             <canvas id="result-canvas"></canvas>
           </div>
         </div>

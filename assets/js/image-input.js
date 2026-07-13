@@ -24,6 +24,7 @@ export function mountImageInput({
   maxEdge = 1024,
   manifestUrl = DEFAULT_MANIFEST_URL,
   defaultSampleId,
+  demo,
 }) {
   const container = typeof mount === 'string' ? document.querySelector(mount) : mount;
   if (!container) throw new Error('mountImageInput: mount point not found');
@@ -102,16 +103,16 @@ export function mountImageInput({
   fetch(manifestUrl)
     .then((res) => res.json())
     .then((data) => {
-      manifest = data;
+      manifest = demo ? data.filter((entry) => entry.demo === demo) : data;
       sampleSelect.innerHTML = '';
-      data.forEach((entry) => {
+      manifest.forEach((entry) => {
         const opt = document.createElement('option');
         opt.value = entry.id;
         opt.textContent = entry.label;
         sampleSelect.appendChild(opt);
       });
-      if (data.length) {
-        const initial = data.find((e) => e.id === defaultSampleId) || data[0];
+      if (manifest.length) {
+        const initial = manifest.find((e) => e.id === defaultSampleId) || manifest[0];
         sampleSelect.value = initial.id;
         loadSampleById(initial.id);
       }

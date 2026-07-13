@@ -238,6 +238,7 @@ syncSliderLabels();
 mountImageInput({
   mount: '#image-input',
   sourceCanvas,
+  demo: 'edge-detection',
   defaultSampleId: 'shape-edges',
   onImage: (canvas) => {
     resultCanvas.width = canvas.width;

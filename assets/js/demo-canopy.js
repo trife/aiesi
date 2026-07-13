@@ -128,6 +128,7 @@ syncSliderLabels();
 mountImageInput({
   mount: '#image-input',
   sourceCanvas,
+  demo: 'canopy-cover',
   defaultSampleId: 'canopy-even',
   onImage: (canvas) => {
     resultCanvas.width = canvas.width;

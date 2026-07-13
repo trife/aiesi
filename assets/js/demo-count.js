@@ -1,5 +1,9 @@
-// Count-objects demo: grayscale -> threshold -> connected components
-// (the vanilla-JS stand-in for findContours) -> filter by area -> draw + count.
+// Count-objects demo, mirroring the ImageJ/Fiji workflow: Make Binary
+// converts the working image to black/white in place (Step 1), then
+// Analyze Particles finds and marks the ones big enough to count on that
+// same image (Step 2). One working image throughout, not a separate
+// preview per stage — particles that don't meet the size filter stay
+// visible in the binary image, they just don't get boxed/numbered.
 
 import { mountImageInput } from './image-input.js';
 
@@ -8,23 +12,35 @@ const resultCanvas = document.getElementById('result-canvas');
 const readoutValue = document.getElementById('readout-value');
 
 const sliders = {
-  threshold: document.getElementById('threshold'),
+  rMin: document.getElementById('r-min'),
+  rMax: document.getElementById('r-max'),
+  gMin: document.getElementById('g-min'),
+  gMax: document.getElementById('g-max'),
+  bMin: document.getElementById('b-min'),
+  bMax: document.getElementById('b-max'),
   minArea: document.getElementById('min-area'),
 };
 const outputs = {
-  threshold: document.getElementById('threshold-out'),
+  rMin: document.getElementById('r-min-out'),
+  rMax: document.getElementById('r-max-out'),
+  gMin: document.getElementById('g-min-out'),
+  gMax: document.getElementById('g-max-out'),
+  bMin: document.getElementById('b-min-out'),
+  bMax: document.getElementById('b-max-out'),
   minArea: document.getElementById('min-area-out'),
 };
 
-let currentImageData = null;
-
-function toGray(data, width, height) {
-  const gray = new Float32Array(width * height);
-  for (let i = 0, p = 0; i < data.length; i += 4, p++) {
-    gray[p] = 0.299 * data[i] + 0.587 * data[i + 1] + 0.114 * data[i + 2];
-  }
-  return gray;
+// The min-area slider is raw 0-100 but mapped through a quadratic curve to
+// an actual px² threshold (0-3000) — most real "clumped vs. noise" decisions
+// happen well under 500px², so a plain linear 0-3000 slider spent most of
+// its travel on a range that's rarely useful and left almost none for the
+// range that matters. Quadratic gives fine control low, coarse control high.
+const MIN_AREA_MAX = 3000;
+function rawToArea(raw) {
+  return Math.round((raw / 100) ** 2 * MIN_AREA_MAX);
 }
+
+let currentImageData = null;
 
 // 8-connected flood fill labeling — the vanilla-JS stand-in for cv.findContours.
 // Iterative (stack-based), not recursive, so it doesn't blow the call stack
@@ -76,15 +92,15 @@ function labelComponents(mask, width, height) {
         }
       }
 
-      components.push({ area, minX, maxX, minY, maxY });
+      components.push({ label: nextLabel, area, minX, maxX, minY, maxY });
     }
   }
 
-  return components;
+  return { labels, components };
 }
 
 function formatSliderValue(key, value) {
-  return key === 'minArea' ? `${value}px²` : value;
+  return key === 'minArea' ? `${rawToArea(value)}px²` : value;
 }
 
 function syncSliderLabels() {
@@ -97,29 +113,44 @@ function process() {
   if (!currentImageData) return;
   const { data, width, height } = currentImageData;
 
-  const threshold = Number(sliders.threshold.value);
-  const minArea = Number(sliders.minArea.value);
+  const rMin = Number(sliders.rMin.value);
+  const rMax = Number(sliders.rMax.value);
+  const gMin = Number(sliders.gMin.value);
+  const gMax = Number(sliders.gMax.value);
+  const bMin = Number(sliders.bMin.value);
+  const bMax = Number(sliders.bMax.value);
+  const minArea = rawToArea(Number(sliders.minArea.value));
 
-  const gray = toGray(data, width, height);
+  // Step 1 (Make Binary): RGB range -> binary. A pixel is foreground only if
+  // its R, G, and B each fall inside their own slider range. Nothing after
+  // this point ever looks at the original pixels again — everything
+  // downstream operates on `mask`, and the result canvas becomes this binary
+  // image.
   const mask = new Uint8Array(width * height);
-  for (let i = 0; i < mask.length; i++) {
-    mask[i] = gray[i] < threshold ? 1 : 0;
+  for (let i = 0, p = 0; i < data.length; i += 4, p++) {
+    const r = data[i];
+    const g = data[i + 1];
+    const b = data[i + 2];
+    mask[p] = r >= rMin && r <= rMax && g >= gMin && g <= gMax && b >= bMin && b <= bMax ? 1 : 0;
   }
-
-  const components = labelComponents(mask, width, height);
-  const kept = components.filter((c) => c.area >= minArea);
 
   const resultCtx = resultCanvas.getContext('2d');
   const resultImageData = resultCtx.createImageData(width, height);
   const out = resultImageData.data;
   for (let i = 0, p = 0; i < out.length; i += 4, p++) {
-    const v = mask[p] ? 60 : 235;
+    const v = mask[p] ? 0 : 255;
     out[i] = v;
     out[i + 1] = v;
     out[i + 2] = v;
     out[i + 3] = 255;
   }
   resultCtx.putImageData(resultImageData, 0, 0);
+
+  // Step 2 (Analyze Particles): connected components on that same binary
+  // image, filtered by size. Blobs below the minimum stay visible in the
+  // image above — they just don't get boxed or numbered.
+  const { components } = labelComponents(mask, width, height);
+  const kept = components.filter((c) => c.area >= minArea);
 
   resultCtx.lineWidth = 3;
   resultCtx.strokeStyle = '#e0a526';
@@ -158,7 +189,8 @@ syncSliderLabels();
 mountImageInput({
   mount: '#image-input',
   sourceCanvas,
-  defaultSampleId: 'seeds-clumped',
+  demo: 'count-objects',
+  defaultSampleId: 'count-2',
   onImage: (canvas) => {
     resultCanvas.width = canvas.width;
     resultCanvas.height = canvas.height;

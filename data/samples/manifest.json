@@ -1,26 +1,58 @@
 [
   {
-    "id": "canopy-even",
-    "file": "canopy-even.svg",
-    "label": "Canopy — evenly lit plot",
-    "difficulty": "easy"
+    "id": "canopy-1",
+    "file": "canopy-1.jpg",
+    "label": "Wheat canopy",
+    "difficulty": "medium",
+    "demo": "canopy-cover"
   },
   {
-    "id": "seeds-clumped",
-    "file": "seeds-clumped.svg",
-    "label": "Seeds — clumped, with shadows",
-    "difficulty": "hard"
+    "id": "canopy-2",
+    "file": "canopy-2.jpg",
+    "label": "Wheat dense canopy",
+    "difficulty": "medium",
+    "demo": "canopy-cover"
   },
   {
-    "id": "leaf-gradient",
-    "file": "leaf-gradient.svg",
-    "label": "Leaf — healthy-to-diseased gradient",
-    "difficulty": "medium"
+    "id": "count-1",
+    "file": "count-1.jpg",
+    "label": "Wheat seeds on mat",
+    "difficulty": "medium",
+    "demo": "count-objects"
   },
   {
-    "id": "shape-edges",
-    "file": "shape-edges.svg",
-    "label": "Shapes — mixed hard/soft edges",
-    "difficulty": "easy"
+    "id": "count-2",
+    "file": "count-2.JPG",
+    "label": "Potatoes on mat",
+    "difficulty": "easy",
+    "demo": "count-objects"
+  },
+  {
+    "id": "health-1",
+    "file": "health-1.jpg",
+    "label": "Disease severity scale (VR–VS)",
+    "difficulty": "easy",
+    "demo": "color-health"
+  },
+  {
+    "id": "health-2",
+    "file": "health-2.png",
+    "label": "Wheat rust",
+    "difficulty": "easy",
+    "demo": "color-health"
+  },
+  {
+    "id": "edge-1",
+    "file": "edge-1.jpg",
+    "label": "Field trial plots",
+    "difficulty": "medium",
+    "demo": "edge-detection"
+  },
+  {
+    "id": "edge-2",
+    "file": "edge-2.png",
+    "label": "Field trial plots overhead",
+    "difficulty": "medium",
+    "demo": "edge-detection"
   }
 ]

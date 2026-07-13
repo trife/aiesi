@@ -732,6 +732,22 @@ a.card:focus-visible {
   accent-color: var(--forest);
 }
 
+.checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: var(--body);
+  cursor: pointer;
+}
+
+.checkbox-row input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  accent-color: var(--forest);
+}
+
 .demo-canvases {
   display: grid;
   grid-template-columns: 1fr;

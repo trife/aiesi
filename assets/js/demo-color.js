@@ -123,6 +123,7 @@ syncSliderLabels();
 mountImageInput({
   mount: '#image-input',
   sourceCanvas,
+  demo: 'color-health',
   defaultSampleId: 'leaf-gradient',
   onImage: (canvas) => {
     resultCanvas.width = canvas.width;
