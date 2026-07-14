@@ -18,7 +18,5 @@ To add one:
 3. Refresh any demo page — the new sample shows up in the picker
    automatically, no code changes needed.
 
-The four images currently in `data/samples/` are hand-drawn SVG
-placeholders standing in for real workshop photos (see "Needs your input"
-below) — they exercise each demo's logic reasonably but aren't real plant
-photography.
+The `canopy-even`, `leaf-gradient`, and `shape-edges` samples are
+hand-drawn SVG placeholders; the rest are real workshop photos.

@@ -480,6 +480,12 @@ a.card:focus-visible {
   max-width: 55ch;
 }
 
+/* Text-only callouts (no button sibling) have nothing to push against with
+   justify-content: space-between, so the 55ch cap just leaves dead space. */
+.callout p:only-child {
+  max-width: none;
+}
+
 .callout strong {
   color: var(--gold);
 }
